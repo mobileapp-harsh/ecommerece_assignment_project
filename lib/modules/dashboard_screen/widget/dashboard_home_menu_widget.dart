@@ -1,5 +1,6 @@
 import 'package:ecommerece_assignment_project/constants/image_constants.dart';
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/controller/dashboard_home_menu_controller.dart';
+import 'package:ecommerece_assignment_project/modules/dashboard_screen/widget/dashboard_home_asPerOccassion_widget.dart';
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/widget/dashboard_home_mainStickyMenu_widget.dart';
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/widget/dashboard_home_menu_shopByCategory_widget.dart';
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/widget/dashboard_home_offerBanner_widget.dart';
@@ -129,7 +130,25 @@ class _DashboardHomeMenuWidgetState extends State<DashboardHomeMenuWidget> {
                         ),
                         DashboardHomeMenuRangeOfPatterns(
                             dashboardHomeMenuController:
-                                _dashboardHomeMenuController)
+                                _dashboardHomeMenuController),
+                        const SizedBox(
+                          height: 12.0,
+                        ),
+                        Text(
+                          "Design As Per Occasion".getFormatedString(),
+                          style: const TextStyle(
+                            fontFamily: "Roboto",
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 12.0,
+                        ),
+                        DashboardHomeMenuDesignAsPerOccasion(
+                          dashboardHomeMenuController:
+                              _dashboardHomeMenuController,
+                        ),
                       ],
                     ).getPaddingWidget(),
     );

@@ -28,47 +28,48 @@ class DashboardHomeMenuRangeOfPatterns extends StatelessWidget {
           return SizedBox(
             height: 150.0,
             width: 150.0,
-            child: Stack(
-              children: [
-                SizedBox(
-                  height: 150,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(100.0),
+              child: Stack(
+                children: [
+                  SizedBox(
+                    height: 150,
                     child: Image.network(
                       dashboardHomeMenuController.dashboardHomeMenuBottomModel!
                           .rangeOfPattern![index].image!,
                       fit: BoxFit.cover,
                     ),
                   ),
-                ),
-                Positioned(
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 2.0,
-                      ),
-                      child: Text(
-                        dashboardHomeMenuController
-                            .dashboardHomeMenuBottomModel!
-                            .rangeOfPattern![index]
-                            .name!
-                            .getFormatedString(),
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 10.0,
-                          fontFamily: "Roboto",
-                          fontWeight: FontWeight.w600,
+                  Positioned(
+                    bottom: 10,
+                    left: 0,
+                    right: 0,
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 6.0,
+                        ),
+                        child: Text(
+                          dashboardHomeMenuController
+                              .dashboardHomeMenuBottomModel!
+                              .rangeOfPattern![index]
+                              .name!
+                              .getFormatedString(),
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 10.0,
+                            color: Colors.white,
+                            fontFamily: "Roboto",
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         },
