@@ -2,9 +2,11 @@ import 'package:ecommerece_assignment_project/constants/image_constants.dart';
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/controller/dashboard_home_menu_controller.dart';
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/widget/dashboard_home_asPerOccassion_widget.dart';
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/widget/dashboard_home_mainStickyMenu_widget.dart';
+import 'package:ecommerece_assignment_project/modules/dashboard_screen/widget/dashboard_home_menu_boutiqueCollection.dart';
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/widget/dashboard_home_menu_shopByCategory_widget.dart';
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/widget/dashboard_home_offerBanner_widget.dart';
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/widget/dashboard_home_rangeOfPatterns_widget.dart';
+import 'package:ecommerece_assignment_project/utils/ui/progress_indicator_spinkit.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerece_assignment_project/utils/custom_extensions.dart';
 import 'package:get/get.dart';
@@ -25,9 +27,7 @@ class _DashboardHomeMenuWidgetState extends State<DashboardHomeMenuWidget> {
   Widget build(BuildContext context) {
     return Obx(
       () => _dashboardHomeMenuController.isLoading.value == true
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
+          ? const ProgressIndicatorUtils()
           : _dashboardHomeMenuController.hasError.value == true
               ? const Center(
                   child: Text('Something went Wrong,Please try again later!'),
@@ -45,7 +45,7 @@ class _DashboardHomeMenuWidgetState extends State<DashboardHomeMenuWidget> {
                           child: MainstickyMenuWidget(
                             dashboardHomeMenuController:
                                 _dashboardHomeMenuController,
-                          ),
+                          ).getPaddingWidget(),
                         ),
                         Container(
                           padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -65,11 +65,28 @@ class _DashboardHomeMenuWidgetState extends State<DashboardHomeMenuWidget> {
                             fontSize: 20.0,
                             fontWeight: FontWeight.w700,
                           ),
-                        ),
+                        ).getPaddingWidget(),
                         DashboardHomeMenuShopByCategoryWidget(
                           dashboardHomeMenuController:
                               _dashboardHomeMenuController,
+                        ).getPaddingWidget(),
+                        const SizedBox(
+                          height: 12.0,
                         ),
+                        Text(
+                          "Boutique Collection".getFormatedString(),
+                          style: const TextStyle(
+                            fontFamily: "Roboto",
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ).getPaddingWidget(),
+                        const SizedBox(
+                          height: 12.0,
+                        ),
+                        DashboardHomeMenuBoutiqueCollection(
+                            dashboardHomeMenuController:
+                                _dashboardHomeMenuController),
                         const SizedBox(
                           height: 12.0,
                         ),
@@ -80,7 +97,7 @@ class _DashboardHomeMenuWidgetState extends State<DashboardHomeMenuWidget> {
                             fontSize: 20.0,
                             fontWeight: FontWeight.w600,
                           ),
-                        ),
+                        ).getPaddingWidget(),
                         const SizedBox(
                           height: 12.0,
                         ),
@@ -113,7 +130,7 @@ class _DashboardHomeMenuWidgetState extends State<DashboardHomeMenuWidget> {
                               ),
                             ),
                           ),
-                        ),
+                        ).getPaddingWidget(),
                         const SizedBox(
                           height: 12.0,
                         ),
@@ -124,13 +141,14 @@ class _DashboardHomeMenuWidgetState extends State<DashboardHomeMenuWidget> {
                             fontSize: 20.0,
                             fontWeight: FontWeight.w600,
                           ),
-                        ),
+                        ).getPaddingWidget(),
                         const SizedBox(
                           height: 12.0,
                         ),
                         DashboardHomeMenuRangeOfPatterns(
-                            dashboardHomeMenuController:
-                                _dashboardHomeMenuController),
+                                dashboardHomeMenuController:
+                                    _dashboardHomeMenuController)
+                            .getPaddingWidget(),
                         const SizedBox(
                           height: 12.0,
                         ),
@@ -141,16 +159,16 @@ class _DashboardHomeMenuWidgetState extends State<DashboardHomeMenuWidget> {
                             fontSize: 20.0,
                             fontWeight: FontWeight.w600,
                           ),
-                        ),
+                        ).getPaddingWidget(),
                         const SizedBox(
                           height: 12.0,
                         ),
                         DashboardHomeMenuDesignAsPerOccasion(
                           dashboardHomeMenuController:
                               _dashboardHomeMenuController,
-                        ),
+                        ).getPaddingWidget(),
                       ],
-                    ).getPaddingWidget(),
+                    ),
     );
   }
 }

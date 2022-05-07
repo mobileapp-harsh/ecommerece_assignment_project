@@ -1,8 +1,9 @@
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/controller/dashboard_category_menu_controller.dart';
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/widget/category_list_main_product_widget.dart';
+import 'package:ecommerece_assignment_project/utils/ui/progress_indicator_spinkit.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerece_assignment_project/utils/custom_extensions.dart';
 import 'package:get/get.dart';
+import 'package:ecommerece_assignment_project/utils/custom_extensions.dart';
 
 class DashboardCategoryMenuWidget extends StatefulWidget {
   const DashboardCategoryMenuWidget({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class _DashboardCategoryMenuWidgetState
   Widget build(BuildContext context) {
     return Obx(
       () => _dashboardCategoryMenuController.isLoading.value == true
-          ? const Center(child: CircularProgressIndicator())
+          ? const ProgressIndicatorUtils()
           : _dashboardCategoryMenuController.hasError.value == true
               ? const Center(
                   child: Text('Something went Wrong,Please try again later!'),

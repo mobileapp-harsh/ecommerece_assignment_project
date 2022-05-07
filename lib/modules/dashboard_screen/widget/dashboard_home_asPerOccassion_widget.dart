@@ -21,19 +21,19 @@ class DashboardHomeMenuDesignAsPerOccasion extends StatelessWidget {
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 250,
             childAspectRatio: 3 / 2.4,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10),
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 20),
         itemBuilder: (context, index) {
           return SizedBox(
-            height: 200.0,
-            width: 110.0,
+            height: 160.0,
+            width: 160.0,
             child: Stack(
               children: [
                 SizedBox(
                   height: 200,
                   child: Image.network(
-                    dashboardHomeMenuController
-                        .dashboardHomeMenuMiddleModel!.category![index].image!,
+                    dashboardHomeMenuController.dashboardHomeMenuBottomModel!
+                        .designOccasion![index].image!,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -66,13 +66,33 @@ class DashboardHomeMenuDesignAsPerOccasion extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          const Text(
-                            "EXPLORE",
-                            style: TextStyle(
-                              fontSize: 10.0,
-                              fontFamily: "Roboto",
-                              fontWeight: FontWeight.w600,
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                dashboardHomeMenuController
+                                    .dashboardHomeMenuBottomModel!
+                                    .designOccasion![index]
+                                    .subName!,
+                                style: const TextStyle(
+                                  fontSize: 10.0,
+                                  fontFamily: "Roboto",
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              const Spacer(),
+                              Text(
+                                dashboardHomeMenuController
+                                    .dashboardHomeMenuBottomModel!
+                                    .designOccasion![index]
+                                    .cta!,
+                                style: const TextStyle(
+                                  fontSize: 10.0,
+                                  fontFamily: "Roboto",
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
