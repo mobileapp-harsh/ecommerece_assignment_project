@@ -2,6 +2,7 @@ import 'package:ecommerece_assignment_project/config/routes/app_routes.dart';
 import 'package:ecommerece_assignment_project/constants/image_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ecommerece_assignment_project/utils/custom_extensions.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -31,9 +32,25 @@ class _SplashScreenState extends State<SplashScreen> {
         backgroundColor: Colors.white,
         body: Align(
           alignment: Alignment.center,
-          child: Image.asset(
-            CommonImageConstants.SPLASH_ICON,
-            height: 175.0,
+          child: Column(
+            children: [
+              Image.asset(
+                CommonImageConstants.SPLASH_ICON,
+                height: 175.0,
+              ),
+              const SizedBox(
+                height: 12.0,
+              ),
+              Text(
+                "Curate".getFormatedString(),
+                style: const TextStyle(
+                  fontFamily: "Roboto",
+                  color: Colors.black,
+                  fontSize: 28.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
         ),
       ),

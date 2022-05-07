@@ -8,10 +8,17 @@ class DashboardHomeMenuController extends GetxController {
   late RxBool isLoading = true.obs;
   late RxBool hasError = false.obs;
   late RxBool hasData = false.obs;
+  late RxBool isMiddleLoading = true.obs;
+  late RxBool hasMiddleError = false.obs;
+  late RxBool hasMiddleData = false.obs;
+  late RxBool isBottomLoading = true.obs;
+  late RxBool hasBottomError = false.obs;
+  late RxBool hasBottomData = false.obs;
   late DashboardHomeMenuTopModel? dashboardHomeMenuTopModel;
   late DashboardHomeMenuMiddleModel? dashboardHomeMenuMiddleModel;
   late DashboardHomeMenuBottomModel? dashboardHomeMenuBottomModel;
 
+  // Dashboard Menu Top APi Call
   void getAllDashboardMenuTopApiCall() async {
     try {
       isLoading.value = true;
@@ -38,54 +45,56 @@ class DashboardHomeMenuController extends GetxController {
     }
   }
 
+  // Dashboard Menu Middle APi Call
   void getAllDashboardMenuMiddleApiCall() async {
     try {
-      isLoading.value = true;
-      hasError.value = false;
-      hasData.value = false;
+      isMiddleLoading.value = true;
+      hasMiddleError.value = false;
+      hasMiddleData.value = false;
 
       dashboardHomeMenuMiddleModel =
           await ApiImplementer.getDashboardHomeMenuTabMiddleApiImplementer();
 
       if (dashboardHomeMenuMiddleModel == null) {
-        isLoading.value = false;
-        hasError.value = true;
-        hasData.value = false;
+        isMiddleLoading.value = false;
+        hasMiddleError.value = true;
+        hasMiddleData.value = false;
         return;
       }
-      isLoading.value = false;
-      hasError.value = false;
-      hasData.value = true;
+      isMiddleLoading.value = false;
+      hasMiddleError.value = false;
+      hasMiddleData.value = true;
       // getAllDashboardMenuBottomApiCall();
     } catch (error) {
-      isLoading.value = false;
-      hasError.value = true;
-      hasData.value = false;
+      isMiddleLoading.value = false;
+      hasMiddleError.value = true;
+      hasMiddleData.value = false;
     }
   }
 
+  // Dashboard Menu Bottom APi Call
   void getAllDashboardMenuBottomApiCall() async {
     try {
-      isLoading.value = true;
-      hasError.value = false;
-      hasData.value = false;
+      isBottomLoading.value = true;
+      hasBottomError.value = false;
+      hasBottomData.value = false;
 
       dashboardHomeMenuBottomModel =
           await ApiImplementer.getDashboardHomeMenuTabBottomApiImplementer();
 
       if (dashboardHomeMenuBottomModel == null) {
-        isLoading.value = false;
-        hasError.value = true;
-        hasData.value = false;
+        isBottomLoading.value = false;
+        hasBottomError.value = true;
+        hasBottomData.value = false;
         return;
       }
-      isLoading.value = false;
-      hasError.value = false;
-      hasData.value = true;
+      isBottomLoading.value = false;
+      hasBottomError.value = false;
+      hasBottomData.value = true;
     } catch (error) {
-      isLoading.value = false;
-      hasError.value = true;
-      hasData.value = false;
+      isBottomLoading.value = false;
+      hasBottomError.value = true;
+      hasBottomData.value = false;
     }
   }
 }

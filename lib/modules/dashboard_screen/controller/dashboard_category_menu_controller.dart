@@ -8,6 +8,7 @@ class DashboardCategoryMenuController extends GetxController {
   late RxBool hasData = false.obs;
   late CategoryListModel? categoryListModel;
 
+  // Get Category List Product Api Call
   void getAllCategoryProductApiCall() async {
     try {
       isLoading.value = true;

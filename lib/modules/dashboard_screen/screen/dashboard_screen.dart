@@ -29,13 +29,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
   void initState() {
     // controller Put
     Get.put(DashboardCategoryMenuController(), permanent: true)
-        .getAllCategoryProductApiCall(); // category Api
+        .getAllCategoryProductApiCall(); // Category Pur Controller
     Get.put(DashboardHomeMenuController(), permanent: true)
-        .getAllDashboardMenuTopApiCall(); // Dashboard Top
-    Get.put(DashboardHomeMenuController(), permanent: true)
-        .getAllDashboardMenuMiddleApiCall(); // Dashboard Middle
-    Get.put(DashboardHomeMenuController(), permanent: true)
-        .getAllDashboardMenuBottomApiCall(); // Dashboard Bottom
+        ..getAllDashboardMenuTopApiCall()
+        ..getAllDashboardMenuMiddleApiCall()
+        ..getAllDashboardMenuBottomApiCall(); // Dashboard Put Controller
     super.initState();
   }
 

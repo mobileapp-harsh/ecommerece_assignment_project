@@ -1,7 +1,6 @@
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/controller/dashboard_home_menu_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerece_assignment_project/utils/custom_extensions.dart';
-
 class DashboardHomeMenuShopByCategoryWidget extends StatelessWidget {
   final DashboardHomeMenuController dashboardHomeMenuController;
   const DashboardHomeMenuShopByCategoryWidget({
@@ -47,7 +46,7 @@ class DashboardHomeMenuShopByCategoryWidget extends StatelessWidget {
                     child: Container(
                       width: double.infinity,
                       height: 60.0,
-                      color: Colors.white,
+                      color: HexColor.fromHex(dashboardHomeMenuController.dashboardHomeMenuMiddleModel!.category![index].tintColor!),
                       padding: const EdgeInsets.symmetric(
                         horizontal: 12.0,
                       ),

@@ -20,8 +20,7 @@ class DashboardHomeMenuBoutiqueCollection extends StatelessWidget {
       children: [
         CarouselSlider.builder(
           itemCount: dashboardHomeMenuController
-                  .dashboardHomeMenuTopModel!.offerCodeBanner!.length -
-              1,
+                  .dashboardHomeMenuMiddleModel!.boutiqueCollection!.length,
           itemBuilder:
               (BuildContext context, int itemIndex, int pageViewIndex) => Stack(
             children: [
