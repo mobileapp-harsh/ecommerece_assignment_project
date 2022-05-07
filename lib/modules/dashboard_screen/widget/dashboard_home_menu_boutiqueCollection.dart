@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ecommerece_assignment_project/constants/image_constants.dart';
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/controller/dashboard_home_menu_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerece_assignment_project/utils/custom_extensions.dart';
@@ -20,16 +22,20 @@ class DashboardHomeMenuBoutiqueCollection extends StatelessWidget {
       children: [
         CarouselSlider.builder(
           itemCount: dashboardHomeMenuController
-                  .dashboardHomeMenuMiddleModel!.boutiqueCollection!.length,
+              .dashboardHomeMenuMiddleModel!.boutiqueCollection!.length,
           itemBuilder:
               (BuildContext context, int itemIndex, int pageViewIndex) => Stack(
             children: [
               SizedBox(
                 height: 320.0,
-                child: Image.network(
-                  dashboardHomeMenuController.dashboardHomeMenuMiddleModel!
-                      .boutiqueCollection![itemIndex].bannerImage!,
+                child: CachedNetworkImage(
+                  imageUrl: dashboardHomeMenuController
+                      .dashboardHomeMenuMiddleModel!
+                      .boutiqueCollection![itemIndex]
+                      .bannerImage!,
                   fit: BoxFit.cover,
+                  errorWidget: (context, url, error) =>
+                      Image.asset(CommonImageConstants.IMAGE_ERROR),
                 ),
               ),
               Positioned(

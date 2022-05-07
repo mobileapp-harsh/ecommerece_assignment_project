@@ -33,6 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
         body: Align(
           alignment: Alignment.center,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
                 CommonImageConstants.SPLASH_ICON,

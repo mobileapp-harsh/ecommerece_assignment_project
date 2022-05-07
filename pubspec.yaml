@@ -68,6 +68,10 @@ flutter:
     - assets/images/splash_icon.png
     - assets/images/down_arrow.png
     - assets/images/right_arrow.png
+    - assets/images/image_error.png
+    - assets/images/more_icon.png
+    - assets/images/sale_icon.png
+    - assets/images/share_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

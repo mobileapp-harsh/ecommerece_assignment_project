@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerece_assignment_project/constants/image_constants.dart';
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/controller/dashboard_category_menu_controller.dart';
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/widget/category_list_child_product_widget.dart';
@@ -32,10 +33,12 @@ class CategoryListMainProduct extends StatelessWidget {
               children: [
                 SizedBox(
                   width: double.infinity,
-                  child: Image.network(
-                    dashboardCategoryMenuController
+                  child: CachedNetworkImage(
+                    imageUrl: dashboardCategoryMenuController
                         .categoryListModel!.bannerImage!,
                     fit: BoxFit.cover,
+                    errorWidget: (context, url, error) =>
+                        Image.asset(CommonImageConstants.IMAGE_ERROR),
                   ),
                 ),
                 Positioned(

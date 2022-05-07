@@ -48,7 +48,7 @@ class _DashboardHomeMenuWidgetState extends State<DashboardHomeMenuWidget> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             SizedBox(
-                              height: 85.0,
+                              height: 100.0,
                               child: MainstickyMenuWidget(
                                 dashboardHomeMenuController:
                                     _dashboardHomeMenuController,

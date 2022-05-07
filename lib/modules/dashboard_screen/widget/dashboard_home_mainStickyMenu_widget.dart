@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerece_assignment_project/constants/image_constants.dart';
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/controller/dashboard_home_menu_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerece_assignment_project/utils/custom_extensions.dart';
@@ -16,7 +18,7 @@ class MainstickyMenuWidget extends StatelessWidget {
           .dashboardHomeMenuTopModel!.mainStickyMenu!.length,
       itemBuilder: (context, index) {
         return Container(
-          height: 80.0,
+          height: 90.0,
           width: 120.0,
           decoration: BoxDecoration(
             boxShadow: const [
@@ -34,12 +36,14 @@ class MainstickyMenuWidget extends StatelessWidget {
                     topLeft: Radius.circular(4.0),
                     topRight: Radius.circular(4.0),
                   ),
-                  child: Image.network(
-                    dashboardHomeMenuController.dashboardHomeMenuTopModel!
+                  child: 
+                  CachedNetworkImage(
+                      imageUrl: dashboardHomeMenuController.dashboardHomeMenuTopModel!
                         .mainStickyMenu![index].image!,
-                    height: 65.0,
-                    fit: BoxFit.cover,
-                  ),
+                      fit: BoxFit.cover,
+                      errorWidget: (context, url, error) =>
+                          Image.asset(CommonImageConstants.IMAGE_ERROR),
+                    ),
                 ),
               ),
               Align(

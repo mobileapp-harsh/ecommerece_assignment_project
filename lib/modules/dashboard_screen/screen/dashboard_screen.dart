@@ -3,6 +3,9 @@ import 'package:ecommerece_assignment_project/modules/dashboard_screen/controlle
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/controller/dashboard_home_menu_controller.dart';
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/widget/dashboard_category_menu_widget.dart';
 import 'package:ecommerece_assignment_project/modules/dashboard_screen/widget/dashboard_home_menu_widget.dart';
+import 'package:ecommerece_assignment_project/modules/dashboard_screen/widget/dashboard_more_menu_widget.dart';
+import 'package:ecommerece_assignment_project/modules/dashboard_screen/widget/dashboard_sale_menu_widget.dart';
+import 'package:ecommerece_assignment_project/modules/dashboard_screen/widget/dashboard_share_menu_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ecommerece_assignment_project/utils/custom_extensions.dart';
@@ -20,9 +23,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
   late List<Widget> dashboardMenu = <Widget>[
     const DashboardHomeMenuWidget(),
     const DashboardCategoryMenuWidget(),
-    const Text('3'),
-    const Text('4'),
-    const Text('5')
+    const DashboardShareMenuWidget(),
+    const DashboardSaleMenuWidget(),
+    const DashboardMoreMenuWidget(),
   ];
 
   @override
@@ -31,9 +34,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
     Get.put(DashboardCategoryMenuController(), permanent: true)
         .getAllCategoryProductApiCall(); // Category Pur Controller
     Get.put(DashboardHomeMenuController(), permanent: true)
-        ..getAllDashboardMenuTopApiCall()
-        ..getAllDashboardMenuMiddleApiCall()
-        ..getAllDashboardMenuBottomApiCall(); // Dashboard Put Controller
+      ..getAllDashboardMenuTopApiCall()
+      ..getAllDashboardMenuMiddleApiCall()
+      ..getAllDashboardMenuBottomApiCall(); // Dashboard Put Controller
     super.initState();
   }
 
@@ -96,12 +99,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 icon: const Icon(Icons.category),
               ),
               BottomNavigationBarItem(
-                label: "CURATE".getFormatedString(),
+                label: "SHARE".getFormatedString(),
                 icon: const Icon(Icons.share),
               ),
               BottomNavigationBarItem(
                 label: "SALE".getFormatedString(),
-                icon: const Icon(Icons.sailing),
+                icon: const Icon(Icons.shopping_bag),
               ),
               BottomNavigationBarItem(
                 label: "MORE".getFormatedString(),
